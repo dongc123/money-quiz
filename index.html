@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#FBF6EC">
+<meta name="description" content="财富磁场测评 - 30道场景式题目，解锁你的专属财富磁场报告">
+<meta name="author" content="财富磁场研究所">
+<meta name="copyright" content="财富磁场研究所">
+<meta property="og:title" content="测测你吸引大钱的能力">
+<meta property="og:description" content="30道题 · 约5分钟 · 解锁你的专属财富磁场报告">
+<title>财富磁场测评 · 测测你吸引大钱的能力</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{background:#FBF6EC}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#2B2314;font-size:17px;line-height:1.8}
+#app{max-width:480px;margin:0 auto;min-height:100vh;position:relative;overflow:hidden}
+.screen{min-height:100vh;display:flex;flex-direction:column;animation:fade .35s ease}
+.hidden{display:none!important}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.gold-text{background:linear-gradient(100deg,#B8862F 0%,#8F6A1E 30%,#C9963C 55%,#9A7318 80%,#B8862F 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{0%{background-position:0% 0}100%{background-position:200% 0}}
+
+/* ========== 封面 / 动态码页 ========== */
+#gate{padding:48px 26px 16px;justify-content:space-between;position:relative}
+#gate::before{content:'¥';position:absolute;top:8%;right:-8%;font-size:280px;font-weight:800;color:rgba(184,134,47,.07);pointer-events:none;line-height:1}
+.brand-mark{text-align:center;font-size:12px;letter-spacing:4px;color:#B3A482;font-weight:700;margin-bottom:16px}
+.gate-top{position:relative}
+.coin{width:84px;height:84px;margin:0 auto 20px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#FBE9AE,#E3B75A 45%,#B8862F 100%);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;color:#6E5210;box-shadow:0 0 0 5px rgba(217,174,76,.25),0 12px 34px rgba(184,134,47,.35),inset 0 -4px 10px rgba(110,82,16,.35);animation:coinFloat 3.4s ease-in-out infinite}
+@keyframes coinFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+#gate h1{text-align:center;font-size:33px;line-height:1.5;letter-spacing:1px;font-weight:900}
+.gate-sub{text-align:center;color:#8A7A5C;font-size:16px;margin-top:14px;letter-spacing:1px}
+.code-card{position:relative;background:#fff;border:1px solid #EBDFC2;border-radius:20px;padding:28px 24px;box-shadow:0 16px 40px rgba(140,105,40,.12)}
+.code-card::before{content:'';position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,#D9AE4C,transparent)}
+.code-card label{display:block;text-align:center;font-size:17px;font-weight:800;margin-bottom:16px;letter-spacing:3px;color:#4A3B18}
+#codeInput{width:100%;border:1.5px solid #E5D6B4;border-radius:12px;background:#FBF6EC;font-size:24px;font-weight:700;letter-spacing:8px;text-align:center;padding:14px 8px;color:#6E5210;outline:none;transition:border-color .2s,box-shadow .2s}
+#codeInput:focus{border-color:#C9963C;box-shadow:0 0 16px rgba(217,174,76,.3)}
+#codeInput::placeholder{letter-spacing:6px;color:#C9BC9A}
+.err{text-align:center;color:#C0563B;font-size:15px;min-height:24px;margin-top:10px;font-weight:700}
+.shake{animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.tip{text-align:center;color:#A89878;font-size:14px;margin-top:14px}
+
+.btn-main{position:relative;overflow:hidden;width:100%;border:none;border-radius:14px;background:linear-gradient(135deg,#F1D28A,#D9AE4C 55%,#C9963C);color:#3D2E08;font-size:19px;font-weight:900;letter-spacing:5px;padding:16px;cursor:pointer;box-shadow:0 10px 24px rgba(201,150,60,.35),inset 0 1px 0 rgba(255,255,255,.55);transition:transform .12s ease}
+.btn-main::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sweep 3.2s ease infinite}
+@keyframes sweep{0%{left:-80%}45%,100%{left:130%}}
+.btn-main:active{transform:scale(.97)}
+.btn-ghost{width:100%;border:1.5px solid #E0D2AC;border-radius:14px;background:transparent;color:#8A7A5C;font-size:16px;font-weight:700;padding:13px;cursor:pointer}
+.foot-note{text-align:center;color:#B3A482;font-size:13px;padding:18px 0 4px;letter-spacing:1px}
+.copyright-bar{text-align:center;color:#C9BC9A;font-size:11.5px;padding:8px 0 4px;letter-spacing:1px;line-height:1.7}
+
+/* ========== 用户协议 ========== */
+#agreement{padding:48px 22px 16px;justify-content:flex-start}
+.agree-card{background:#fff;border:1px solid #EBDFC2;border-radius:18px;padding:28px 22px;box-shadow:0 12px 32px rgba(140,105,40,.1)}
+.agree-card h2{font-size:23px;font-weight:900;text-align:center;margin-bottom:18px}
+.agree-body{font-size:15px;line-height:2;color:#5C5040;max-height:320px;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-right:6px}
+.agree-body h4{font-size:15.5px;font-weight:800;color:#4A3B18;margin:14px 0 6px}
+.agree-body p{margin-bottom:8px;text-align:justify}
+.agree-check{margin-top:18px;padding:14px;background:#FBF3DC;border-radius:12px;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.agree-check input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:#C9963C}
+.agree-check label{font-size:15.5px;font-weight:700;color:#4A4132;cursor:pointer;line-height:1.7}
+#agreeBtn{margin-top:16px;opacity:.4;pointer-events:none}
+#agreeBtn.ready{opacity:1;pointer-events:auto}
+
+/* ========== 测评须知 ========== */
+#intro{padding:56px 26px 24px;justify-content:center}
+.intro-card{background:#fff;border:1px solid #EBDFC2;border-radius:20px;padding:34px 28px;box-shadow:0 16px 40px rgba(140,105,40,.12)}
+.intro-card h2{font-size:27px;font-weight:900;text-align:center;margin-bottom:24px;letter-spacing:2px}
+.intro-card li{list-style:none;padding:13px 0;border-bottom:1px dashed #F0E6CC;font-size:16.5px;display:flex;gap:12px;align-items:flex-start;color:#4A4132}
+.intro-card li:last-child{border-bottom:none}
+.num-dot{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#F1D28A,#C9963C);color:#3D2E08;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:4px}
+#intro .btn-main{margin-top:26px}
+
+/* ========== 答题页 ========== */
+#quiz{padding:22px 24px 28px}
+.quiz-head{position:sticky;top:0;background:linear-gradient(#FBF6EC 82%,transparent);padding:8px 0 16px;z-index:5}
+.q-progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.q-progress-row .qn{font-size:24px;font-weight:900}
+.q-progress-row .qtotal{font-size:15px;color:#A89878;font-weight:700}
+.q-progress-row .dim-tag{font-size:13px;color:#B3A482;font-weight:700;letter-spacing:3px}
+.bar{height:7px;background:#F0E6CC;border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#F1D28A,#C9963C);border-radius:4px;box-shadow:0 0 10px rgba(217,174,76,.55);transition:width .3s ease}
+.q-box{flex:1;display:flex;flex-direction:column;justify-content:center;padding:26px 0 18px}
+#qText{font-size:22px;font-weight:800;line-height:1.7;margin-bottom:28px;color:#2B2314}
+#qOpts{display:flex;flex-direction:column;gap:14px}
+.opt{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid #EBDFC2;border-radius:15px;padding:16px;font-size:17px;font-weight:600;color:#3A3120;cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s,transform .12s;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.opt:active{transform:scale(.98)}
+.opt .key{flex:none;width:31px;height:31px;border-radius:50%;border:1.5px solid #D9C48C;color:#9A7B2A;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;background:#fff;transition:all .15s}
+.opt.sel{border-color:#C9963C;background:#FBF3DC;box-shadow:0 6px 18px rgba(201,150,60,.22)}
+.opt.sel .key{background:linear-gradient(135deg,#F1D28A,#C9963C);border-color:transparent;color:#3D2E08}
+#backBtn{margin-top:24px}
+#backBtn:disabled{opacity:.3}
+
+/* ========== 生成中 ========== */
+.overlay{position:fixed;inset:0;background:radial-gradient(circle at 50% 38%,#FFFDF6,#F7EDD8 70%);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.coin-spin{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#FBE9AE,#E3B75A 45%,#B8862F 100%);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#6E5210;box-shadow:0 10px 30px rgba(184,134,47,.4);animation:flip 1.1s ease-in-out infinite}
+@keyframes flip{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}
+.overlay p{color:#9A7318;font-size:17px;letter-spacing:3px;font-weight:800}
+
+/* ========== 结果页 ========== */
+#result{animation:fade .4s ease}
+.res-head{position:relative;background:linear-gradient(165deg,#F9ECCB 0%,#F3DFA8 60%,#EED694 100%);padding:48px 26px 40px;text-align:center;overflow:hidden;border-bottom:1px solid #E9D394}
+.res-head::before{content:'¥';position:absolute;bottom:-30px;left:-18px;font-size:180px;font-weight:800;color:rgba(154,115,24,.08);line-height:1;pointer-events:none}
+.res-head::after{content:'¥';position:absolute;top:-24px;right:-14px;font-size:150px;font-weight:800;color:rgba(154,115,24,.08);line-height:1;pointer-events:none}
+.res-label{font-size:15px;letter-spacing:7px;color:#8F6A1E;font-weight:800}
+.res-score{margin:14px 0 4px;position:relative;z-index:1}
+.res-score .big{font-size:86px;font-weight:900;line-height:1.1}
+.res-score .full{font-size:19px;color:#A08A58;font-weight:800;margin-left:8px}
+.res-pct{font-size:15.5px;color:#8F6A1E;font-weight:800;margin-bottom:6px}
+.res-badge{display:inline-block;border:1.5px solid #C9963C;background:rgba(255,255,255,.55);color:#7A5B14;border-radius:999px;padding:8px 24px;font-size:20px;font-weight:900;letter-spacing:2px;margin-top:12px;box-shadow:0 8px 22px rgba(184,134,47,.22);position:relative;z-index:1}
+.res-sub{margin-top:13px;font-size:16px;color:#6E5426;font-weight:600;position:relative;z-index:1}
+.res-meta{margin-top:16px;font-size:12.5px;color:#A08A58;letter-spacing:1px;position:relative;z-index:1}
+.res-body{padding:30px 24px 30px}
+.res-body h3{font-size:21px;font-weight:900;margin:34px 0 16px;display:flex;align-items:center;gap:10px;letter-spacing:1px;color:#2B2314}
+.res-body h3:first-child{margin-top:0}
+.res-body h3::before{content:'';width:5px;height:21px;border-radius:3px;background:linear-gradient(#D9AE4C,#B8862F)}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{border:1px solid #D9C48C;background:#FBF3DC;color:#8F6A1E;border-radius:999px;padding:7px 18px;font-size:15.5px;font-weight:800;letter-spacing:1px}
+.persona-card{background:linear-gradient(170deg,#FEFAEF,#FBF3DC);border:1px solid #EBDFC2;border-radius:15px;padding:22px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.persona-card p{font-size:16.5px;line-height:2;text-align:justify;color:#4A4132}
+.persona-same{margin-top:14px;padding-top:14px;border-top:1px dashed #E3D3A6;color:#8F6A1E;font-weight:700;font-size:15.5px}
+.dim{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:18px;margin-bottom:13px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.dim-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.dim-name{font-size:17px;font-weight:800;color:#2B2314}
+.dim-score{font-size:17px;font-weight:900}
+.dim-score small{font-size:13px;color:#B3A482;font-weight:600}
+.dim-bar{height:8px;background:#F1E7CC;border-radius:4px;overflow:hidden}
+.dim-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#F1D28A,#C9963C);border-radius:4px;transition:width 1s cubic-bezier(.2,.7,.3,1)}
+.dim-cmt{font-size:15px;color:#8A7A5C;margin-top:10px;line-height:1.75}
+.analysis{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:22px;font-size:17px;line-height:2.05;text-align:justify;color:#4A4132;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.analysis p+p{margin-top:14px}
+.truth-list{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.truth-list li{list-style:none;display:flex;gap:12px;font-size:16.5px;font-weight:700;line-height:1.85;color:#5C4A1E}
+.truth-list li::before{content:'◆';color:#C9963C;font-size:13px;margin-top:5px}
+.block-card{border:1.5px dashed #D98A5E;background:#FDF3EA;border-radius:15px;padding:20px}
+.block-name{display:inline-block;background:linear-gradient(135deg,#D98A5E,#C06A3E);color:#FFF6EE;font-size:14px;font-weight:900;border-radius:999px;padding:4px 14px;letter-spacing:2px;margin-bottom:12px}
+.block-diag{font-size:16px;line-height:1.95;color:#4A4132;text-align:justify}
+.block-sub{margin-top:14px;font-size:14px;font-weight:900;letter-spacing:2px;color:#B85A2E}
+.repair-list{margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.repair-list li{list-style:none;display:flex;gap:10px;font-size:15.5px;line-height:1.85;color:#6E4A34}
+.repair-list li::before{content:'✓';flex:none;font-weight:900;color:#D98A5E}
+.path-card{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:20px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.path-name{font-size:18.5px;font-weight:900;margin-bottom:10px}
+.path-desc{font-size:16px;line-height:1.95;color:#7A6A48;text-align:justify}
+.path-step{margin-top:14px;padding:12px 14px;background:#FBF3DC;border-radius:10px;font-size:15.5px;line-height:1.8;color:#7A5B14;font-weight:700}
+.path-step b{color:#8F6A1E}
+.plan-card{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:20px 20px 14px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+.plan-card ol{display:flex;flex-direction:column;gap:12px}
+.plan-card li{list-style:none;display:flex;gap:12px;font-size:15.5px;line-height:1.8;color:#4A4132}
+.plan-day{flex:none;width:38px;height:24px;border-radius:8px;background:linear-gradient(135deg,#F1D28A,#C9963C);color:#3D2E08;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:3px}
+#resTips{background:#fff;border:1px solid #EBDFC2;border-radius:15px;padding:20px 22px;display:flex;flex-direction:column;gap:15px;box-shadow:0 4px 14px rgba(140,105,40,.06)}
+#resTips li{list-style:none;display:flex;gap:12px;font-size:16.5px;line-height:1.85;color:#4A4132}
+#resTips .num-dot{background:linear-gradient(135deg,#F1D28A,#C9963C);color:#3D2E08;margin-top:5px}
+.ladder{display:flex;flex-direction:column;gap:9px}
+.ladder-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1.5px solid #EBDFC2;border-radius:12px;padding:13px 16px;color:#B3A482}
+.ladder-item .l-name{font-size:15.5px;font-weight:800;letter-spacing:.5px}
+.ladder-item .l-range{font-size:13px;font-weight:700}
+.ladder-item.now{border:1.5px solid #C9963C;background:linear-gradient(135deg,#FDF6E3,#FBF3DC);box-shadow:0 6px 18px rgba(201,150,60,.25)}
+.ladder-item.now .l-name{color:#7A5B14}
+.ladder-item.now .l-range{color:#B8862F}
+.ladder-item.now .l-name::after{content:' ← 你在这里';font-size:12.5px;color:#C9963C;font-weight:900}
+.res-next{margin-top:12px;text-align:center;font-size:15.5px;font-weight:900;color:#8F6A1E}
+.decl-card{position:relative;border:1.5px solid #D9AE4C;background:linear-gradient(170deg,#FEFAEF,#FBF3DC);border-radius:18px;padding:30px 24px;text-align:center;box-shadow:0 10px 28px rgba(184,134,47,.15)}
+.decl-mark{font-size:13px;letter-spacing:6px;color:#B3A482;font-weight:800;margin-bottom:14px}
+.decl-text{font-size:21px;font-weight:900;line-height:1.85}
+.res-actions{margin-top:30px}
+.share-hint{text-align:center;color:#8F6A1E;font-size:15px;font-weight:700;margin-top:16px}
+.shot-hint{text-align:center;color:#A89878;font-size:14px;margin-top:8px}
+.disclaimer-box{margin-top:20px;padding:14px 16px;background:#F5F0E4;border-radius:12px;font-size:12.5px;line-height:1.8;color:#A89878;text-align:justify}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- 封面 + 动态码验证 -->
+  <section id="gate" class="screen">
+    <div class="gate-top">
+      <p class="brand-mark">财富磁场研究所 · 原创出品</p>
+      <div class="coin">¥</div>
+      <h1><span class="gold-text">测测你吸引大钱的能力</span></h1>
+      <p class="gate-sub">30 道题 · 约 5 分钟<br>解锁你的专属财富磁场报告</p>
+    </div>
+    <div class="code-card">
+      <label>输入动态码 · 解锁测评</label>
+      <input id="codeInput" type="text" maxlength="12" autocomplete="off" placeholder="······">
+      <p id="codeErr" class="err"></p>
+      <button id="unlockBtn" class="btn-main">解锁我的财富报告</button>
+      <p class="tip">动态码已随购买链接一并发送，仅限本人使用</p>
+    </div>
+    <footer class="foot-note" id="footNote">本测评仅供娱乐参考</footer>
+    <div class="copyright-bar">
+      © 2026 财富磁场研究所 版权所有<br>
+      本测评全部内容（题目、算法、报告文案、视觉设计）均为原创，未经授权禁止复制、转载、改编
+    </div>
+  </section>
+
+  <!-- 用户协议 -->
+  <section id="agreement" class="screen hidden">
+    <div class="agree-card">
+      <h2><span class="gold-text">用户须知与免责声明</span></h2>
+      <div class="agree-body">
+        <h4>一、关于本测评</h4>
+        <p>本测评由「财富磁场研究所」原创开发，所有题目、评分算法、结果报告及页面设计均为原创内容，受著作权法保护。</p>
+        <h4>二、免责声明</h4>
+        <p>本测评结果基于用户自选答案通过算法生成，仅供娱乐和自我探索参考，不构成任何投资建议、理财指导、心理咨询或医疗建议。测评结果不代表对用户财务状况的专业评估。用户因参考测评结果而做出的任何决定及产生的后果，均由用户自行承担。</p>
+        <h4>三、隐私保护</h4>
+        <p>本测评不收集、不存储、不上传任何个人信息。答题数据仅存在于您的浏览器本地，关闭页面即自动清除。我们不使用 Cookie 追踪，不接入任何第三方分析。</p>
+        <h4>四、知识产权</h4>
+        <p>本测评的全部内容（包括但不限于题目、文案、评分体系、等级设定、页面设计、代码逻辑）版权归「财富磁场研究所」所有。未经书面授权，任何单位或个人不得复制、转载、改编、二次分发或用于商业用途。</p>
+        <h4>五、使用规则</h4>
+        <p>动态码为付费获取的使用凭证，仅限购买者本人使用。转卖、共享动态码的行为将被视为侵权。本测评内容可能不定期更新，恕不另行通知。</p>
+      </div>
+      <div class="agree-check" id="agreeCheck">
+        <input type="checkbox" id="agreeBox">
+        <label for="agreeBox">我已阅读并同意以上全部条款，理解本测评仅供娱乐参考</label>
+      </div>
+      <button id="agreeBtn" class="btn-main">同意并继续</button>
+    </div>
+  </section>
+
+  <!-- 测评须知 -->
+  <section id="intro" class="screen hidden">
+    <div class="intro-card">
+      <h2><span class="gold-text">开测之前</span></h2>
+      <ul>
+        <li><span class="num-dot">1</span>共 30 道场景式单选题，没有对错，凭第一直觉选最准</li>
+        <li><span class="num-dot">2</span>全程约 5 分钟，答完生成 13 大模块的专属财富报告</li>
+        <li><span class="num-dot">3</span>含财富人格、卡点修补清单与 7 天启动计划，值得截图收藏</li>
+      </ul>
+      <button id="startBtn" class="btn-main">开始答题</button>
+    </div>
+  </section>
+
+  <!-- 答题 -->
+  <section id="quiz" class="screen hidden">
+    <header class="quiz-head">
+      <div class="q-progress-row">
+        <div><span class="qn gold-text" id="qNum">1</span><span class="qtotal"> / 30</span></div>
+        <span class="dim-tag" id="dimTag"></span>
+      </div>
+      <div class="bar"><i id="qBar"></i></div>
+    </header>
+    <div class="q-box">
+      <h2 id="qText"></h2>
+      <div id="qOpts"></div>
+    </div>
+    <button id="backBtn" class="btn-ghost" disabled>← 上一题</button>
+  </section>
+
+  <!-- 生成报告 -->
+  <div id="analyzing" class="overlay hidden">
+    <div class="coin-spin">¥</div>
+    <p>正在凝聚你的财富磁场…</p>
+  </div>
+
+  <!-- 结果报告 -->
+  <section id="result" class="screen hidden">
+    <div class="res-head">
+      <p class="res-label">财富吸引指数</p>
+      <div class="res-score"><span class="big gold-text" id="resScore">0</span><span class="full">/ 120</span></div>
+      <p class="res-pct" id="resPct"></p>
+      <div><span class="res-badge" id="resTierName"></span></div>
+      <p class="res-sub" id="resTierTitle"></p>
+      <p class="res-meta" id="resMeta"></p>
+    </div>
+    <div class="res-body">
+      <h3>财富画像</h3>
+      <div class="tags" id="resTags"></div>
+      <h3>财富人格档案</h3>
+      <div class="persona-card">
+        <p id="personaDesc"></p>
+        <p class="persona-same" id="personaSame"></p>
+      </div>
+      <h3>五维财富磁场</h3>
+      <div id="resDims"></div>
+      <h3>综合解读</h3>
+      <div class="analysis" id="resAnalysis"></div>
+      <h3>你和大钱的三个真相</h3>
+      <ol class="truth-list" id="resTruths"></ol>
+      <h3>你的吸金卡点</h3>
+      <div class="block-card">
+        <span class="block-name" id="blockName"></span>
+        <p class="block-diag" id="blockDiag"></p>
+        <p class="block-sub">修补清单</p>
+        <ul class="repair-list" id="blockRepairs"></ul>
+      </div>
+      <h3>你的天赋赛道</h3>
+      <div class="path-card">
+        <p class="path-name gold-text" id="pathName"></p>
+        <p class="path-desc" id="pathDesc"></p>
+        <p class="path-step" id="pathStep"></p>
+      </div>
+      <h3>你的 7 天财富启动计划</h3>
+      <div class="plan-card"><ol id="resPlan"></ol></div>
+      <h3>立刻能做的三件事</h3>
+      <ol id="resTips"></ol>
+      <h3>你的财富宣言</h3>
+      <div class="decl-card">
+        <p class="decl-mark">— MONEY MANIFESTO —</p>
+        <p class="decl-text gold-text" id="resDecl"></p>
+      </div>
+      <h3>财富磁场全等级</h3>
+      <div class="ladder" id="resLadder"></div>
+      <p class="res-next gold-text" id="resNext"></p>
+      <div class="res-actions">
+        <button id="retakeBtn" class="btn-main">再测一次</button>
+      </div>
+      <p class="share-hint">截图发给你最好的朋友，看看你们是不是同一个磁场</p>
+      <p class="shot-hint">三个月后再测一次，看看你的磁场升级了没有</p>
+      <div class="disclaimer-box">
+        本报告由「财富磁场研究所」原创算法生成，版权归本研究所所有。报告内容仅供娱乐和自我探索参考，不构成投资、理财或心理建议。未经授权禁止复制、转载、改编本报告内容。
+      </div>
+      <footer class="foot-note">© 2026 财富磁场研究所 · 仅供娱乐参考</footer>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ==================================================================
+   商家配置区
+   ================================================================== */
+var SECRET = 'dongcai-2026';
+var DAILY_COUNT = 1;
+var ACCESS_CODES = ['888888'];
+
+/* ================== 每日动态码算法 ================== */
+function strHash(str){
+  var h = 1779033703 ^ str.length;
+  for(var i = 0; i < str.length; i++){
+    h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  return function(){
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return (h ^= h >>> 16) >>> 0;
+  };
+}
+function dayStr(offset){
+  var d = new Date();
+  d.setDate(d.getDate() + (offset || 0));
+  var m = d.getMonth() + 1, day = d.getDate();
+  return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+}
+function dailyCodes(offset){
+  var seedFn = strHash(SECRET + '|' + dayStr(offset));
+  var a = seedFn();
+  var rand = function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  var seen = {}, out = [], guard = 0;
+  while(out.length < DAILY_COUNT && guard < 10000){
+    guard++;
+    var c = ('000000' + Math.floor(rand() * 1000000)).slice(-6);
+    if(!seen[c]){ seen[c] = 1; out.push(c); }
+  }
+  return out;
+}
+
+/* ================== 题库 ================== */
+var DIMS = ['财富信念','行动力','格局野心','金钱习惯','配得感'];
+
+var QUESTIONS = [
+  {d:0,q:'假设你随手买的彩票中了 500 万，兑奖路上你脑子里反复出现的画面是？',o:[['“肯定搞错了，别白高兴一场”',1],['“先藏好，谁也别告诉”',2],['已经在盘算还房贷、给爸妈多少',3],['已经在想怎么用它撬动更多的钱',4]]},
+  {d:0,q:'朋友聚会聊起"某某半年赚了一百万"，你嘴上说厉害，心里实际在想？',o:[['"这种人迟早栽跟头"',1],['"运气好而已，但我懒得学"',2],['"他是怎么做到的？找机会请他吃饭"',3],['"这个赛道有没有我的位置？回去就研究"',4]]},
+  {d:0,q:'刷到一条"普通人翻身"的视频，你的手指会？',o:[['直接划走，又是割韭菜的',1],['点赞收藏，然后再也没有然后',2],['看完，顺便翻翻评论区的真实反馈',3],['看完立刻去搜这个人的背景和方法',4]]},
+  {d:0,q:'如果把"钱"想象成一个人，你觉得你们现在的关系是？',o:[['见面绕着走的点头之交',1],['偶尔想起来的老同学',2],['正在约饭、慢慢热络的朋友',3],['互相奔赴的暧昧对象',4]]},
+  {d:0,q:'下面几句话，你内心最"信"哪一句？',o:[['钱是万恶之源，知足常乐',1],['钱难挣，屎难吃',2],['君子爱财，取之有道',3],['钱只是工具，我赚钱是为了用它',4]]},
+  {d:0,q:'深夜emo时，你幻想过"突然有钱"的画面吗？',o:[['从没想过，想了更难受',1],['想过，但画面很模糊，只有"还清欠款"',2],['想得很具体：房子、旅行、辞职',3],['幻想里我是用钱创造东西的人，不是花钱的人',4]]},
+  {d:1,q:'你收藏夹里"以后再看"的赚钱教程和资料，实际点开过几条？',o:[['一条没点过，收藏就是终点',1],['点过一两条，看了个开头',2],['认真看完过几条',3],['收藏当天就看，看完还整理笔记',4]]},
+  {d:1,q:'你决定做一件事之后，从"决定"到"动手"平均要多久？',o:[['基本不会动手',1],['半个月到一个月',2],['三五天之内',3],['按小时算，想到一个动作就先做一个',4]]},
+  {d:1,q:'单位或平台上有个没人抢的露脸机会（发言、上台、报名），你会？',o:[['假装没看见，枪打出头鸟',1],['心动三秒，然后让给别人',2],['犹豫到最后一刻，看情况',3],['直接举手，露脸就是流量',4]]},
+  {d:1,q:'为了赚钱或成长，你做过的最"疯狂"的行动是什么？',o:[['没做过，我的行动一向中规中矩',1],['想不起来，好像没为钱疯狂过',2],['独自跑外地、主动约人、摆过摊之类',3],['为见一个人或学一门本事，专门花过大价钱大精力',4]]},
+  {d:1,q:'一个稳赚但很累的副业，和一件可能赚大钱但没把握的事，你选？',o:[['都不选，现在的节奏就挺好',1],['选稳赚的，落袋为安',2],['主做稳的，用业余时间试大的',3],['全押没把握但天花板高的，累不是问题',4]]},
+  {d:1,q:'你上一次靠"行动"赚到钱（哪怕很小一笔）是什么时候？',o:[['从来没有过',1],['很久了，记不清',2],['这一年里有过',3],['这个月里就有，而且不止一次',4]]},
+  {d:2,q:'如果神灯只许你选一个"确定的人生上限"，你选？',o:[['月入两万，安稳就好',1],['年入五十万，够体面',2],['年入百万，财务自由',3],['上限？我要的是没有上限',4]]},
+  {d:2,q:'身边有人比你先富起来了，你的真实状态是？',o:[['心里不是滋味，慢慢疏远',1],['表面恭喜，背后说他运气好',2],['真心恭喜，顺便取经',3],['主动贴上去，争取做他"第一批"的人',4]]},
+  {d:2,q:'五年后的同学聚会，你希望别人这样介绍你？',o:[['"他一直挺稳的"',1],['"他换了辆好车"',2],['"他自己干起来了"',3],['"他在做一件很大的事，我们都盯着他"',4]]},
+  {d:2,q:'你对"钱生钱"的理解是？',o:[['那是有钱人的游戏，与我无关',1],['存银行吃利息就算',2],['学过一些，正在小额尝试',3],['我的每一分钱都有自己的岗位',4]]},
+  {d:2,q:'一个三倍工资但要去陌生城市的机会，你的第一反应是？',o:[['去不了，我的生活全在这里',1],['心动，但家人一劝就放弃',2],['认真盘算一遍可行性再说',3],['机会在哪，我人就在哪',4]]},
+  {d:2,q:'下面这几样，你最怕的是？',o:[['怕亏钱，本金安全第一',1],['怕辛苦，太累的事不干',2],['怕错过，风口过去就没了',3],['我只怕老了后悔当年没敢开始',4]]},
+  {d:3,q:'现在打开手机银行，你能立刻说出余额（精确到百位）吗？',o:[['不敢看，看了心慌',1],['大概知道，精确到千位吧',2],['能，我有记账的习惯',3],['能，而且我知道每一类支出的占比',4]]},
+  {d:3,q:'发工资那天，你的钱会发生什么？',o:[['先还花呗信用卡，剩下随缘',1],['转进余额宝，月底看剩多少',2],['固定比例储蓄，生活费单独放',3],['发薪日是我给钱"安排工作"的日子',4]]},
+  {d:3,q:'过去一年，你为"学会一个赚钱技能"花过多少钱？',o:[['0 元，技能全靠白嫖',1],['几十到几百，买了课没学完',2],['上千，学完且用上了一部分',3],['上万也花过，且每笔都算得出回报',4]]},
+  {d:3,q:'你有没有一个"搞钱进度本"（表格/备忘录/记账App）？',o:[['没有，搞钱靠心态不靠表格',1],['有，但更新停留在第一页',2],['有记账或目标清单',3],['有，而且每周复盘迭代',4]]},
+  {d:3,q:'一笔钱放你手里一年不动，最后会怎样？',o:[['早就在日常里花掉了',1],['原地放着，图个安心',2],['拆成几份：应急、稳健、尝试',3],['让它在一年内至少"生"出一笔新收入',4]]},
+  {d:3,q:'"被动收入"这个词，对你的具体含义是？',o:[['没概念',1],['知道，但我觉得普通人没份',2],['有想法，比如利息、房租',3],['我已经有一项，或正在搭建第一项',4]]},
+  {d:4,q:'客户或老板说"你这个价太贵了"，你的真实反应是？',o:[['立刻降价，怕丢了单子',1],['心一虚，开始拼命解释成本',2],['坚持价格，但会送点增值服务',3],['微笑反问："您觉得哪一部分不值？"',4]]},
+  {d:4,q:'朋友找你帮忙做你专业内的事（设计、咨询、代写），你会？',o:[['免费帮到底，开口要钱伤感情',1],['帮了，但全程不好意思提钱',2],['半推半就收个红包',3],['明码实价，朋友价也先说清楚',4]]},
+  {d:4,q:'走进奢侈品店或高档场所，你的内心状态是？',o:[['浑身不自在，想赶紧走',1],['装作镇定，其实很拘谨',2],['能逛，但不太敢上手试',3],['自然大方，我在哪都有"主人感"',4]]},
+  {d:4,q:'收到一笔超出预期的报酬时，你的第一反应是？',o:[['不敢相信，反复核对是不是搞错了',1],['很惊喜，但觉得受之有愧',2],['开心收下，觉得是我应得的',3],['平静收下，顺便想下一笔怎么更大',4]]},
+  {d:4,q:'如果给"我值得拥有的月薪"填一个数，你会填？',o:[['比现在略低——拿着现在的都心虚',1],['跟现在差不多',2],['比现在高一半，我觉得值',3],['至少翻几倍，我的价值远没被定价对',4]]},
+  {d:4,q:'一年后的你寄来一封信，你希望第一句是？',o:[['"还好你当年没乱来"',1],['"谢谢你一直省着花钱"',2],['"谢谢你迈出了那一步"',3],['"谢谢你敢想，你看，都实现了"',4]]}
+];
+
+/* ================== 结果等级 ================== */
+var TIERS = [
+  {min:30,max:54,name:'财富休眠期',persona:'沉睡的金矿',quote:'你的财富开关还没打开，但它一直都在',
+   analysis:['现在的你，和钱之间隔着一层毛玻璃：看得见别人的丰盛，摸不到自己的。信念上，"钱很难""我不配"的种子埋得比你想的深；行动上，你不是没想法，而是每个想法后面都跟着十个"万一"；习惯上，钱来了就走，你从没认真请它坐下来聊过。',
+   '你可能有过这样的瞬间——深夜刷到同龄人晒收入，心里一紧又假装不在意；也曾无数次在"要不试试"和"算了吧"之间，选了算了吧。这不是懒，是一种更隐蔽的东西：你从心底不确定自己"配"。',
+   '好消息是：磁场是可以重新充磁的。金矿不会因为没人开采就消失，它只等着第一铲。把这份报告当作你财富账本的第一页——三个月后再测一次，你会回来谢现在的自己。'],
+   tips:['换掉口头禅：把"我买不起"换成"我怎么才能买得起"','从今天起记录每一笔钱的流向，重建金钱感知','找一件50元以内就能启动的小事，本周内完成第一次行动']},
+  {min:55,max:72,name:'财富萌芽期',persona:'涓流的泉水',quote:'稳稳的小钱在手，大钱只差一次野心扩容',
+   analysis:['你和钱的关系像一对老朋友：不热烈，但可靠。工资准时来，花销心里有数，偶尔有结余，偶尔也会在月底叹口气。你靠一个"稳"字撑起了自己的小日子，这份秩序感，其实很多人做不到。',
+   '但你心里其实知道——你不是赚不到大钱，你是默认了自己"不赚大钱"。每次机会路过，你都会在心里按一次"这个不现实"的确认键。按得太多次，大钱就真的不来了：不是它不想来，是你从没给它留门。',
+   '你的下一步不是更努力，是更大胆。把目标调大一号，把"现实"两个字从搞钱字典里删掉一周试试。泉水和大江之间，差的从来不是水，是河道。'],
+   tips:['把收入目标改写为现在的3倍，倒推自己缺的到底是什么','每月固定拿出10%收入，投资自己的赚钱能力','主动链接一位比你赚得多的人，研究他的路径']},
+  {min:73,max:90,name:'财富生长期',persona:'升温的金流',quote:'万事俱备，只欠一个"敢"字',
+   analysis:['你是那种"万事俱备"的人：认知不落伍，执行力在线，看机会的眼光也练出来了。身边人遇到搞不定的难题，会先想到问你。可你自己却总在最后一步前减速——报价前让一让，出手前等一等，机会前"再准备准备"。',
+   '说白了，你不是能力问题，是火候问题。你和想要的那个数字之间，隔着一个"敢"字：敢把自己放到更大的台面上，敢在没有全然把握时说"我来"。你缺的那口气，别人给不了，只能自己给自己点火。',
+   '本月就试一次"先上车后补票"：那个你觉得还配不上的机会，主动伸手去够。你会惊讶地发现，世界对你野心的容忍度，远比你想象的高。'],
+   tips:['本月主动争取一次"够不着"的机会，先上车再补票','把自己的时间和服务涨价30%，观察世界并没有崩塌','每周花30分钟复盘钱的流向，找到可以放大的收入点']},
+  {min:91,max:105,name:'财富爆发期',persona:'黄金磁场',quote:'不是你追钱，是钱在追你',
+   analysis:['你的磁场已经打开了。机会开始主动找你，谈判时底气变足，钱在你手里开始有了"工具感"，而不只是"安全感"。这种状态很多人一辈子都没体验过，而你已经站在里面了。',
+   '接下来你的课题会变：不是"怎么赚更多"，而是"怎么承接更大"。单打独斗的模式快到顶了，系统、团队、资产这些词会开始频繁找上你。谁先把个人能力变成可复制的产品，谁先让钱脱离自己的时间，谁就进入下一层级。',
+   '提醒一句：越顺的时候越要补短板。你现在最贵的资产是注意力和信用，别用它们去换快钱。'],
+   tips:['把个人能力产品化，让收入摆脱时间捆绑','开始学习资产配置，让钱替你上班','走进更贵的圈子：你的净值约等于最常来往的5个人的平均值']},
+  {min:106,max:120,name:'财富自由态',persona:'人形印钞机',quote:'你就是行走的财富磁场',
+   analysis:['恭喜——你就是传说中的"人形印钞机"。信念、行动、格局、习惯、配得感，五维全开。钱对你而言早就不是目标，而是价值流动的自然结果。你看机会像看呼吸，谈钱像谈天气。',
+   '这个量级的你，烦恼会换一批：时间不够分、注意力被稀释、身边人跟不上你的节奏。你的下一程，是从"赚钱的人"变成"生出钱系统和钱氛围的人"——教别人、分利润、做布道，都是你的新杠杆。',
+   '守住敬畏，放大格局。财富流经你，也会塑造你。让一部分钱去照亮别人，你会发现回流的那条河道，比原来宽得多。'],
+   tips:['从"赚钱"切换到"布道"，把你的方法论变成影响力','设立一个分享账户，习惯性让财富流动起来','保护好注意力——它已经是你手里最贵的资产']}
+];
+
+var PERSONAS = [
+  {desc:'你是一座还没有被开采的金矿——储量未知，但肯定有。你对钱的感知还隔着一层雾：谈钱会紧张，算钱会心慌，看到别人赚钱第一反应是"跟我没关系"。可你身上往往有一种被低估的踏实，只是这份踏实还没被你自己当成资产。',same:'和你同磁场的人很多，但他们中的大多数，会在未来两年里悄悄分化。'},
+  {desc:'你是那种"钱不会亏待你，但也不会偏爱你"的人。工资按时到账，花销心里有数，偶尔结余，偶尔月光。你靠规则感和安全感活着，钱在你这里过得安稳，却过得太安静了。',same:'和你同磁场的人，正站在人生的分岔口——一步之遥，就是另一种活法。'},
+  {desc:'你是正在升温的金流——能力在线、想法成体系，差的只是一次"全押式的相信"。你的朋友圈里已经有人开始说"这家伙最近不太一样了"，而你自己，还在等一个万无一失的时机。',same:'同磁场的人最容易出黑马，因为你什么都有了，只差点火。'},
+  {desc:'你已经能感觉到那种"顺"——想做的事总有人接住，缺的资源总会绕回来。钱在你手里不是数字，是流动的工具。你开始被身边人请教搞钱问题，虽然你自己觉得"我也才刚上路"。',same:'同磁场的人是人群里的少数派，你们互认的暗号是"别聊了，直接说怎么干"。'},
+  {desc:'你就是行走的印钞机——看机会像看呼吸一样自然，谈钱像谈天气一样坦然。你早就跨过了"能不能赚到"的阶段，正在琢磨"怎么让钱替我上班"。你的烦恼不是穷，是时间不够分。',same:'同磁场的人极其稀少。你们出现在同一个房间时，那个房间就会开始发生故事。'}
+];
+
+var TRUTHS = [
+  ['你不是不会赚钱，你是还没允许自己赚钱','你缺的从来不是机会，是接住机会的心理账户','今天这份报告，是你第一次认真看"钱看你的眼神"'],
+  ['你的稳定是资产，也是枷锁——就看你往哪边用','你和小钱处得好，大钱正在门口等一个升级信号','你不需要更努力，你需要更敢'],
+  ['你已经走过最难的从0到1，别卡死在从1到1.5的犹豫里','你的保守不是错，错的是在该激进的时候保守','机会不等人，但它认脸——露脸多的那个人赢'],
+  ['你的直觉已经很值钱了，缺一套系统让它稳定值钱','个人英雄主义的天花板，就是你现在的收入天花板','下一步不是赚更多，而是让更多为你赚'],
+  ['你的下一个瓶颈不是能力，是体力和注意力','财富到了这个量级，格局就是你的护城河','教别人赚钱，是你下一步最大的杠杆']
+];
+
+var DIM_COMMENTS = [
+  {high:'你对钱的底层信念非常健康——不仇富、不自卑，天然相信财富可以被创造，这是吸引大钱的第一块基石。',mid:'你对钱的态度比较中立，既不排斥也不狂热，但偶尔会冒出"大钱与我无关"的念头，值得觉察。',low:'你潜意识里对"大钱"有距离感甚至抗拒，"钱很难、我配不上"的信念正在悄悄关小你的财富阀门。'},
+  {high:'想到就干是你的本能，在吸引财富的赛跑里，你的执行力天然领先一个身位。',mid:'你不缺想法，缺的是启动速度——很多机会不是没看见，而是在"再等等"中溜走了。',low:'"想得多、动得少"是你目前最大的卡点，大钱偏爱那些先把一只脚迈出去的人。'},
+  {high:'你敢想敢要，目光锁定的是十倍可能性，这种格局正是大钱的引力场。',mid:'你的目标偏稳健，跳一跳够得着，但离"撑大野心"还差一次自我突破。',low:'你习惯把目标定在安全区，舒服是真舒服，但也悄悄给财富封了顶。'},
+  {high:'你对钱有清晰的掌控感，会规划、会复盘、会钱生钱，大钱来了你也接得住。',mid:'你和钱和平共处，但还停留在"管好小钱"的阶段，缺少让钱增殖的动作。',low:'你对钱的流向基本处于"放养"状态，先建立金钱感知，才谈吸引大钱。'},
+  {high:'你打心底相信自己值得丰盛，谈钱不心虚、要价有底气，这是吸金体质的核心特征。',mid:'你大体认可自己的价值，但关键时刻会心虚让步，错过本该属于你的回报。',low:'"不配得感"正在让你持续让渡价值——你敢收的价格，就是你能吸引的财富天花板。'}
+];
+
+var TAGS = [
+  {high:'财商在线', low:'金钱回避'},
+  {high:'行动派猎人', low:'想得多做得少'},
+  {high:'格局破圈', low:'目标封顶'},
+  {high:'现金流掌控', low:'财务裸奔'},
+  {high:'底气满格', low:'配得感缺口'}
+];
+var TIER_KEYTAGS = ['磁场待激活','稳字当头','差一个敢字','钱在追你','价值回流'];
+
+var BLOCKS = [
+  {name:'卡点 · 金钱回避',diag:'你对"大钱"本能地保持距离——觉得它危险、遥远、跟自己无关。这不是理性判断，是早年种下的限制性信念在替你做决定。信念不修，方法白学。',
+   repairs:['每天写一条"我值得"的证据（一次被认可、一次做成的事），连写 21 天','每周打开账户余额盯 3 分钟，练到心不慌','本月买一件"舍不得但买得起"的小东西，体验一次配得感']},
+  {name:'卡点 · 行动瘫痪',diag:'你的大脑先富起来了，行动还在温饱线。想法在脑子里反复排练，就是不肯登台，机会全在"准备中"过了期。你不是不会做，是迟迟不做。',
+   repairs:['用"5 分钟启动法"对付每个新想法：先只做 5 分钟','把拖延最久的那件事拆成 3 步，今天只做第 1 步','每完成一次行动打一个卡，攒满 7 个就奖励自己一次']},
+  {name:'卡点 · 目标封顶',diag:'你把目标定在"安全线"而不是"心动线"，潜意识觉得要太多会被惩罚。你的财富天花板，是你自己亲手焊上去的。',
+   repairs:['把收入目标 ×10 设成手机壁纸，放一周，只观察自己的反应','写下 3 个"不敢想"的愿望，朗读 3 遍，不许笑场','约一个目标比你大的人聊天，只问一个问题：你是怎么敢的？']},
+  {name:'卡点 · 财务裸奔',diag:'你的钱处于"无人管理"状态：来多少、花多少、剩多少，全是一个黑箱。不是钱不理你，是你从没认真看过它一眼。',
+   repairs:['今晚导出最近 3 个月账单，分成"必要、想要、投资自己"三类','从明天起记账 21 天，重点记那些"模糊消费"','给每笔收入预设去向：50% 生活、30% 储蓄、20% 成长']},
+  {name:'卡点 · 配得感缺口',diag:'你习惯性降价、让利、不好意思收钱。你收下的每一个"打折的自己"，都在告诉宇宙：给我打折的钱就好。',
+   repairs:['列出你的 5 项核心价值，下次报价前先念一遍','下次想主动打折时，先报原价，沉默 10 秒等对方回应','再收到夸奖时只说"谢谢"，把"没有没有"戒掉']}
+];
+
+var PATHS = [
+  {name:'认知变现型选手',desc:'你天生适合把"想明白的事"变成钱：知识付费、内容创作、社群陪伴、咨询陪跑。你的大脑就是你的第一生产力，别让它只用来内耗。',step:'本周内，把你最懂的一件事写成 500 字，发到任何一个平台——今天就可以动笔。'},
+  {name:'实战交易型选手',desc:'你出手快、扛得住拒绝、恢复得也快，天生适合离钱最近的战场：电商带货、销售转化、本地生意、探店团购。你的行动力就是你的印钞机。',step:'找一个离钱最近的平台，本周内完成你的第一次上架、报名或开张。'},
+  {name:'操盘杠杆型选手',desc:'你看得见大势、敢押注、也能聚人，适合做"钱和资源之间的枢纽"：品牌操盘、资源整合、平台型生意。你的格局就是你的杠杆。',step:'画一张你的资源地图：人脉、资金、技能、渠道，各写出 3 个，你会发现牌比你以为的多。'},
+  {name:'资产复利型选手',desc:'你对数字敏感、耐得住寂寞，适合让钱替你打工：稳健理财、定投复利、租售资产、被动收入组合。别人追风口，你吃时间红利。',step:'今晚就开通一个独立的储蓄账户，转入第一笔钱——金额不限，仪式感拉满。'},
+  {name:'IP溢价型选手',desc:'你气场足、敢要价、自带主人感，天生适合做"高客单"的生意：个人品牌、专业服务、高端咨询。你的名字本身就是溢价。',step:'给你最近一次的报价上调 20%，下周用新价格至少开口谈一次。'}
+];
+
+var PLANS = [
+  ['写下你对钱的第一个童年记忆','把"我买不起"改成"我怎么才能买得起"，说 10 次','关注 3 个你欣赏的搞钱博主，只学习不羡慕','写下 10 件你做成过的事，任何小事都算','对着镜子说"我值得有钱"，直到不笑场','删掉一条"赚钱很难"的收藏，换一条真实逆袭案例','给自己定一个"跳一跳够得着"的小钱目标'],
+  ['列出你所有"想了没做"的事，挑出最小的一件','今天只做它的第一步，做完就打卡','找一个做过这件事的人，请教 10 分钟','给这件事定一个 48 小时内能交付的小成果','公开承诺：发朋友圈或告诉一个朋友','复盘卡点，砍掉一个不必要的准备环节','交付第一个小成果，兑现给自己的奖励'],
+  ['写下 3 年后你想要的月收入，数字不许打折','找到 3 个已经做到的人，研究他们的路径','把一句"我不行"翻译成"我暂时还没有做到"','列出你的资源清单，你会发现自己比想象中有货','主动链接一位比你厉害的人，说一句具体的话','写下"如果今年只能做一件事"，它是哪件','把大目标拆成本季度的一个关键动作，写进日历'],
+  ['导出最近 3 个月的账单，分成三类','设立三个钱包：生活、储蓄、成长','记账 Day 1，重点盯"模糊消费"','取消一个你根本用不上的订阅或会员','搞懂一个最基本的理财概念，比如复利','完成一笔最小的"钱生钱"操作，10 元也行','写下你的第一份资产配置草案'],
+  ['写下你的 5 项核心价值','按市场价重新核算你的时间值多少钱','拒绝一次不合理的免费请求，礼貌但坚定','收到一句夸奖，只回"谢谢"','买一件"配得上现在的自己"的小东西','把你的成果整理成一页纸，随时能拿出来','用新价格谈一次，至少，先开口']
+];
+
+var DECLARATIONS = [
+  '钱不是不来，是还没收到我的信号。从今天起，我开始广播了。',
+  '小钱养我长大，大钱正在路上堵车。我等得起，也追得上。',
+  '我不追钱了，我要把自己变成钱愿意停下来的地方。',
+  '我看向哪里，钱就流向哪里。',
+  '我不是在赚钱，我是在成为钱本身。'
+];
+
+/* ================== 页面逻辑 ================== */
+var $ = function(id){ return document.getElementById(id); };
+var idx = 0;
+var answers = new Array(QUESTIONS.length).fill(null);
+var KEYS = ['A','B','C','D'];
+
+function show(id){
+  ['gate','agreement','intro','quiz','result'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(id).classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+/* ---- 动态码验证 ---- */
+function isValidCode(v){
+  var upper = String(v).trim().toUpperCase();
+  var fixed = ACCESS_CODES.map(function(c){ return String(c).trim().toUpperCase(); });
+  if(fixed.indexOf(upper) !== -1){ return true; }
+  return dailyCodes(0).indexOf(upper) !== -1 || dailyCodes(-1).indexOf(upper) !== -1;
+}
+function tryUnlock(){
+  var v = $('codeInput').value.trim();
+  if(!v){ return codeError('请输入动态码'); }
+  if(!isValidCode(v)){ return codeError('动态码不正确或已过期，请核对后重试'); }
+  localStorage.setItem('qz_unlocked', v.toUpperCase());
+  $('codeErr').textContent = '';
+  show('agreement');
+}
+function codeError(msg){
+  var e = $('codeErr'); e.textContent = msg;
+  var card = document.querySelector('.code-card');
+  card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
+}
+$('unlockBtn').addEventListener('click', tryUnlock);
+$('codeInput').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ tryUnlock(); } });
+
+/* ---- 用户协议勾选 ---- */
+$('agreeBox').addEventListener('change', function(){
+  if(this.checked){ $('agreeBtn').classList.add('ready'); }
+  else { $('agreeBtn').classList.remove('ready'); }
+});
+$('agreeBtn').addEventListener('click', function(){
+  if(!$('agreeBox').checked){ return; }
+  show('intro');
+});
+
+/* ---- 答题 ---- */
+function renderQ(){
+  var item = QUESTIONS[idx];
+  $('qNum').textContent = idx + 1;
+  $('qBar').style.width = (idx / QUESTIONS.length * 100) + '%';
+  $('dimTag').textContent = DIMS[item.d];
+  $('qText').textContent = item.q;
+  var box = $('qOpts'); box.innerHTML = '';
+  item.o.forEach(function(opt, i){
+    var el = document.createElement('div');
+    el.className = 'opt' + (answers[idx] === opt[1] ? ' sel' : '');
+    el.innerHTML = '<span class="key">' + KEYS[i] + '</span><span>' + opt[0] + '</span>';
+    el.addEventListener('click', function(){ pick(opt[1]); });
+    box.appendChild(el);
+  });
+  $('backBtn').disabled = idx === 0;
+}
+function pick(score){
+  answers[idx] = score;
+  renderQ();
+  setTimeout(function(){
+    if(idx < QUESTIONS.length - 1){ idx++; renderQ(); }
+    else { finish(); }
+  }, 230);
+}
+$('backBtn').addEventListener('click', function(){
+  if(idx > 0){ idx--; renderQ(); }
+});
+$('startBtn').addEventListener('click', function(){
+  idx = 0;
+  show('quiz');
+  renderQ();
+});
+
+/* ---- 出结果 ---- */
+function calcDims(){
+  var sums = [0,0,0,0,0];
+  QUESTIONS.forEach(function(q, i){ sums[q.d] += answers[i]; });
+  return sums;
+}
+function tierIndex(total){
+  for(var i = 0; i < TIERS.length; i++){
+    if(total >= TIERS[i].min && total <= TIERS[i].max){ return i; }
+  }
+  return 0;
+}
+function finish(){
+  var total = answers.reduce(function(a,b){ return a + b; }, 0);
+  var ti = tierIndex(total);
+  $('analyzing').classList.remove('hidden');
+  setTimeout(function(){
+    $('analyzing').classList.add('hidden');
+    buildResult(total, ti, calcDims());
+    show('result');
+    countUp($('resScore'), total, 1200);
+    setTimeout(animateDims, 300);
+  }, 1400);
+}
+function fillList(el, items, inner){
+  el.innerHTML = '';
+  items.forEach(function(t, i){
+    var li = document.createElement('li');
+    li.innerHTML = inner(t, i);
+    el.appendChild(li);
+  });
+}
+function buildResult(total, ti, dims){
+  var tier = TIERS[ti];
+  var pct = Math.max(5, Math.min(96, Math.round((total - 30) / 90 * 88 + 6)));
+  $('resPct').textContent = '本场测评已超越 ' + pct + '% 的玩家';
+  var d = new Date();
+  var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+  var dateStr = d.getFullYear() + '.' + pad(d.getMonth() + 1) + '.' + pad(d.getDate());
+  var rand = ('000' + Math.floor(Math.random() * 10000)).slice(-4);
+  $('resMeta').textContent = '报告编号 QZ' + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + rand + ' · ' + dateStr;
+  $('resTierName').textContent = tier.name + ' · ' + tier.persona;
+  $('resTierTitle').textContent = '「' + tier.quote + '」';
+  var strongIdx = 0, weakIdx = 0;
+  dims.forEach(function(s, i){
+    if(s > dims[strongIdx]){ strongIdx = i; }
+    if(s < dims[weakIdx]){ weakIdx = i; }
+  });
+  var tagsBox = $('resTags'); tagsBox.innerHTML = '';
+  [TAGS[strongIdx].high, TAGS[weakIdx].low, TIER_KEYTAGS[ti]].forEach(function(t){
+    var el = document.createElement('span');
+    el.className = 'tag';
+    el.textContent = t;
+    tagsBox.appendChild(el);
+  });
+  $('personaDesc').textContent = PERSONAS[ti].desc;
+  $('personaSame').textContent = '◈ ' + PERSONAS[ti].same;
+  var anaBox = $('resAnalysis'); anaBox.innerHTML = '';
+  tier.analysis.forEach(function(p){
+    var el = document.createElement('p');
+    el.textContent = p;
+    anaBox.appendChild(el);
+  });
+  fillList($('resTruths'), TRUTHS[ti], function(t){ return '<span>' + t + '</span>'; });
+  $('blockName').textContent = BLOCKS[weakIdx].name;
+  $('blockDiag').textContent = BLOCKS[weakIdx].diag;
+  fillList($('blockRepairs'), BLOCKS[weakIdx].repairs, function(t){ return '<span>' + t + '</span>'; });
+  $('pathName').textContent = PATHS[strongIdx].name;
+  $('pathDesc').textContent = PATHS[strongIdx].desc;
+  $('pathStep').innerHTML = '<b>第一步 · 本周就做：</b>' + PATHS[strongIdx].step;
+  fillList($('resPlan'), PLANS[weakIdx], function(t, i){
+    return '<span class="plan-day">D' + (i + 1) + '</span><span>' + t + '</span>';
+  });
+  fillList($('resTips'), tier.tips, function(t){
+    return '<span class="num-dot"></span><span>' + t + '</span>';
+  });
+  var box = $('resDims'); box.innerHTML = '';
+  DIMS.forEach(function(name, i){
+    var s = dims[i];
+    var lv = s >= 19 ? 'high' : (s >= 12 ? 'mid' : 'low');
+    var div = document.createElement('div');
+    div.className = 'dim';
+    div.innerHTML =
+      '<div class="dim-top"><span class="dim-name">' + name + '</span>' +
+      '<span class="dim-score gold-text">' + s + '<small> / 24</small></span></div>' +
+      '<div class="dim-bar"><i data-w="' + Math.round(s / 24 * 100) + '"></i></div>' +
+      '<p class="dim-cmt">' + DIM_COMMENTS[i][lv] + '</p>';
+    box.appendChild(div);
+  });
+  $('resDecl').textContent = '“' + DECLARATIONS[ti] + '”';
+  var ladder = $('resLadder'); ladder.innerHTML = '';
+  TIERS.forEach(function(t, i){
+    var div = document.createElement('div');
+    div.className = 'ladder-item' + (i === ti ? ' now' : '');
+    div.innerHTML = '<span class="l-name">' + t.name + ' · ' + t.persona + '</span><span class="l-range">' + t.min + '-' + t.max + ' 分</span>';
+    ladder.appendChild(div);
+  });
+  var next = TIERS[ti + 1];
+  $('resNext').textContent = next
+    ? '↑ 距离「' + next.name + ' · ' + next.persona + '」只差 ' + (next.min - total) + ' 分'
+    : '★ 你已站在财富磁场的最高层';
+}
+function animateDims(){
+  document.querySelectorAll('.dim-bar i').forEach(function(el){
+    el.style.width = el.getAttribute('data-w') + '%';
+  });
+}
+function countUp(el, target, dur){
+  var t0 = null;
+  function step(t){
+    if(!t0){ t0 = t; }
+    var p = Math.min((t - t0) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased);
+    if(p < 1){ requestAnimationFrame(step); }
+  }
+  requestAnimationFrame(step);
+}
+
+/* ---- 重新测试 ---- */
+$('retakeBtn').addEventListener('click', function(){
+  idx = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
+  show('intro');
+});
+
+/* ---- 底部小字连点 5 次 = 清除本机解锁记录 ---- */
+var taps = 0, tapTimer = null;
+$('footNote').addEventListener('click', function(){
+  taps++;
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(function(){ taps = 0; }, 1500);
+  if(taps >= 5){
+    taps = 0;
+    localStorage.removeItem('qz_unlocked');
+    location.reload();
+  }
+});
+
+/* ---- 初始化 ---- */
+(function(){
+  var saved = localStorage.getItem('qz_unlocked');
+  if(saved && isValidCode(saved)){
+    show('agreement');
+    return;
+  }
+  show('gate');
+  var p = new URLSearchParams(location.search).get('code');
+  if(p){ $('codeInput').value = p.trim().toUpperCase(); $('codeInput').focus(); }
+})();
+</script>
+</body>
+</html>
